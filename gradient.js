@@ -635,10 +635,10 @@ function normalizeColor(hexCode) {
     * Initializes the four section colors using fixed hex values.
     */
     initGradientColors() {
-      // Couleurs mises à jour : gradient fluide vert/turquoise/blanc - exact match
+      // Couleurs mises à jour : gradient fluide avec background sombre
       this.sectionColors = [
-        '0xF0F5F4',
-        '0xD5EDE5',
+        '0x1A1A2E',
+        '0x2D3E50',
         '0x7DD9A8',
         '0x5BC98D'
       ].map(normalizeColor);
