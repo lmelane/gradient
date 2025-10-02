@@ -365,17 +365,17 @@ function normalizeColor(hexCode) {
       e(this, "geometry", void 0);
       e(this, "minigl", void 0);
       e(this, "scrollObserver", void 0);
-      e(this, "amp", 320);
-      e(this, "seed", 5);
-      e(this, "freqX", 14e-5);
-      e(this, "freqY", 29e-5);
+      e(this, "amp", 280);
+      e(this, "seed", 8);
+      e(this, "freqX", 12e-5);
+      e(this, "freqY", 25e-5);
       e(this, "freqDelta", 1e-5);
-      e(this, "activeColors", [1, 1, 1, 1]);
+      e(this, "activeColors", [1, 1, 1, 1, 1, 1]);
       e(this, "isMetaKey", !1);
       e(this, "isGradientLegendVisible", !1);
       e(this, "isMouseDown", !1);
-      // Nouvelle propriÃ©tÃ© pour ajuster la vitesse d'animation
-      e(this, "animationSpeed", 1e3 / 20);
+      // Nouvelle propriété pour ajuster la vitesse d'animation
+      e(this, "animationSpeed", 1e3 / 15);
       e(this, "handleScroll", () => {
         clearTimeout(this.scrollingTimeout);
         this.scrollingTimeout = setTimeout(this.handleScrollEnd, this.scrollingRefreshDelay);
@@ -635,12 +635,14 @@ function normalizeColor(hexCode) {
     * Initializes the four section colors using fixed hex values.
     */
     initGradientColors() {
-      // Couleurs mises à jour :
+      // Couleurs mises à jour : gradient fluide vert/turquoise/blanc
       this.sectionColors = [
+        '0xF5FFFE',
         '0xE5F4F7',
         '0xC6E4B0',
         '0x93D66C',
-        '0x6BBD97'
+        '0x6BBD97',
+        '0x5ABAAA'
       ].map(normalizeColor);
     }
   }
