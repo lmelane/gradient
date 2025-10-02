@@ -365,17 +365,17 @@ function normalizeColor(hexCode) {
       e(this, "geometry", void 0);
       e(this, "minigl", void 0);
       e(this, "scrollObserver", void 0);
-      e(this, "amp", 280);
-      e(this, "seed", 8);
-      e(this, "freqX", 12e-5);
-      e(this, "freqY", 25e-5);
+      e(this, "amp", 200);
+      e(this, "seed", 15);
+      e(this, "freqX", 8e-5);
+      e(this, "freqY", 18e-5);
       e(this, "freqDelta", 1e-5);
       e(this, "activeColors", [1, 1, 1, 1, 1, 1]);
       e(this, "isMetaKey", !1);
       e(this, "isGradientLegendVisible", !1);
       e(this, "isMouseDown", !1);
       // Nouvelle propriété pour ajuster la vitesse d'animation
-      e(this, "animationSpeed", 1e3 / 15);
+      e(this, "animationSpeed", 1e3 / 10);
       e(this, "handleScroll", () => {
         clearTimeout(this.scrollingTimeout);
         this.scrollingTimeout = setTimeout(this.handleScrollEnd, this.scrollingRefreshDelay);
@@ -450,7 +450,7 @@ function normalizeColor(hexCode) {
       this.conf = {
         presetName: "",
         wireframe: false,
-        density: [.06, .16],
+        density: [.04, .12],
         zoom: 1,
         rotation: 0,
         playing: true
@@ -504,7 +504,7 @@ function normalizeColor(hexCode) {
               type: "vec2"
             }),
             noiseSpeed: new this.minigl.Uniform({
-              value: 5e-6
+              value: 3e-6
             })
           },
           type: "struct"
@@ -521,17 +521,17 @@ function normalizeColor(hexCode) {
               value: -.5
             }),
             noiseFreq: new this.minigl.Uniform({
-              value: [3, 4],
+              value: [1.5, 2],
               type: "vec2"
             }),
             noiseAmp: new this.minigl.Uniform({
               value: this.amp
             }),
             noiseSpeed: new this.minigl.Uniform({
-              value: 10
+              value: 6
             }),
             noiseFlow: new this.minigl.Uniform({
-              value: 3
+              value: 2
             }),
             noiseSeed: new this.minigl.Uniform({
               value: this.seed
@@ -559,23 +559,23 @@ function normalizeColor(hexCode) {
               type: "vec3"
             }),
             noiseFreq: new this.minigl.Uniform({
-              value: [2 + e / this.sectionColors.length, 3 + e / this.sectionColors.length],
+              value: [1 + e / this.sectionColors.length * 0.5, 1.5 + e / this.sectionColors.length * 0.5],
               type: "vec2"
             }),
             noiseSpeed: new this.minigl.Uniform({
-              value: 11 + .3 * e
+              value: 8 + .2 * e
             }),
             noiseFlow: new this.minigl.Uniform({
-              value: 6.5 + .3 * e
+              value: 4 + .2 * e
             }),
             noiseSeed: new this.minigl.Uniform({
               value: this.seed + 10 * e
             }),
             noiseFloor: new this.minigl.Uniform({
-              value: .1
+              value: .05
             }),
             noiseCeil: new this.minigl.Uniform({
-              value: .63 + .07 * e
+              value: .55 + .05 * e
             })
           },
           type: "struct"
