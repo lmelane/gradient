@@ -365,17 +365,17 @@ function normalizeColor(hexCode) {
       e(this, "geometry", void 0);
       e(this, "minigl", void 0);
       e(this, "scrollObserver", void 0);
-      e(this, "amp", 200);
-      e(this, "seed", 15);
-      e(this, "freqX", 8e-5);
-      e(this, "freqY", 18e-5);
-      e(this, "freqDelta", 1e-5);
-      e(this, "activeColors", [1, 1, 1, 1, 1, 1]);
+      e(this, "amp", 150);
+      e(this, "seed", 25);
+      e(this, "freqX", 4e-5);
+      e(this, "freqY", 8e-5);
+      e(this, "freqDelta", 5e-6);
+      e(this, "activeColors", [1, 1, 1, 1]);
       e(this, "isMetaKey", !1);
       e(this, "isGradientLegendVisible", !1);
       e(this, "isMouseDown", !1);
       // Nouvelle propriété pour ajuster la vitesse d'animation
-      e(this, "animationSpeed", 1e3 / 10);
+      e(this, "animationSpeed", 1e3 / 5);
       e(this, "handleScroll", () => {
         clearTimeout(this.scrollingTimeout);
         this.scrollingTimeout = setTimeout(this.handleScrollEnd, this.scrollingRefreshDelay);
@@ -450,7 +450,7 @@ function normalizeColor(hexCode) {
       this.conf = {
         presetName: "",
         wireframe: false,
-        density: [.04, .12],
+        density: [.03, .08],
         zoom: 1,
         rotation: 0,
         playing: true
@@ -504,7 +504,7 @@ function normalizeColor(hexCode) {
               type: "vec2"
             }),
             noiseSpeed: new this.minigl.Uniform({
-              value: 3e-6
+              value: 1e-6
             })
           },
           type: "struct"
@@ -521,17 +521,17 @@ function normalizeColor(hexCode) {
               value: -.5
             }),
             noiseFreq: new this.minigl.Uniform({
-              value: [1.5, 2],
+              value: [0.8, 1.2],
               type: "vec2"
             }),
             noiseAmp: new this.minigl.Uniform({
               value: this.amp
             }),
             noiseSpeed: new this.minigl.Uniform({
-              value: 6
+              value: 3
             }),
             noiseFlow: new this.minigl.Uniform({
-              value: 2
+              value: 1
             }),
             noiseSeed: new this.minigl.Uniform({
               value: this.seed
@@ -559,23 +559,23 @@ function normalizeColor(hexCode) {
               type: "vec3"
             }),
             noiseFreq: new this.minigl.Uniform({
-              value: [1 + e / this.sectionColors.length * 0.5, 1.5 + e / this.sectionColors.length * 0.5],
+              value: [0.5 + e / this.sectionColors.length * 0.3, 0.8 + e / this.sectionColors.length * 0.3],
               type: "vec2"
             }),
             noiseSpeed: new this.minigl.Uniform({
-              value: 8 + .2 * e
+              value: 5 + .15 * e
             }),
             noiseFlow: new this.minigl.Uniform({
-              value: 4 + .2 * e
+              value: 2 + .15 * e
             }),
             noiseSeed: new this.minigl.Uniform({
               value: this.seed + 10 * e
             }),
             noiseFloor: new this.minigl.Uniform({
-              value: .05
+              value: .02
             }),
             noiseCeil: new this.minigl.Uniform({
-              value: .55 + .05 * e
+              value: .45 + .03 * e
             })
           },
           type: "struct"
@@ -635,14 +635,12 @@ function normalizeColor(hexCode) {
     * Initializes the four section colors using fixed hex values.
     */
     initGradientColors() {
-      // Couleurs mises à jour : gradient fluide vert/turquoise/blanc
+      // Couleurs mises à jour : gradient fluide vert/turquoise/blanc - exact match
       this.sectionColors = [
-        '0xF5FFFE',
-        '0xE5F4F7',
-        '0xC6E4B0',
-        '0x93D66C',
-        '0x6BBD97',
-        '0x5ABAAA'
+        '0xF0F5F4',
+        '0xD5EDE5',
+        '0x7DD9A8',
+        '0x5BC98D'
       ].map(normalizeColor);
     }
   }
